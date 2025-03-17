@@ -1,21 +1,37 @@
 package com.example.trenify.domain.models
 
 import com.example.trenify.domain.enums.Gender
-import com.example.trenify.domain.enums.Periodization
-import com.example.trenify.domain.enums.TrainingProgram
 
 class FemaleUserAccount(
-    Id: Long,
+    id: Long,
     _username: String,
     _age: Int,
     _weight: Float,
     needSeparateDaysForCardio: Boolean,
-    trainingProgram: TrainingProgram,
+    workoutProgram: WorkoutProgram,
     periodization: Periodization,
-    injuredMuscles: List<Muscle>
+    injuredMuscles: List<Muscle>,
 ) : UserAccount(
-    Id, _username,
+    id, _username,
     Gender.Female,
     _age,
-    _weight, needSeparateDaysForCardio, trainingProgram, periodization, injuredMuscles
-)
+    _weight,
+    needSeparateDaysForCardio,
+    workoutProgram,
+    periodization,
+    injuredMuscles
+) {
+    private var _currentDayOfMenstruation: Int = 0
+
+    fun increaseTheCurrentDayOfMenstruation() {
+        _currentDayOfMenstruation++
+    }
+
+    fun markTheFirstDayOfMenstruation() {
+        _currentDayOfMenstruation = 1
+    }
+
+    fun markTheLastDayOfMenstruation() {
+        _currentDayOfMenstruation = 0
+    }
+}
