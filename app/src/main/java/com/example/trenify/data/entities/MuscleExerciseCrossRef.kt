@@ -2,7 +2,6 @@ package com.example.trenify.data.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.PrimaryKey
 
 @Entity(tableName = "muscle_exercise_cross_ref",
     primaryKeys = ["muscle_id", "exercise_id"])

@@ -42,8 +42,11 @@ android {
 }
 
 dependencies {
+    implementation(libs.splash.screen)
+    implementation(libs.navigation)
 
     implementation(libs.room)
+    implementation(libs.androidx.navigation.runtime.android)
     ksp(libs.room.annotation.processor)
     implementation(libs.room.ktx)
 
